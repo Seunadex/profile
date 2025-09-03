@@ -34,10 +34,10 @@ main (){
   install_cask google-chrome
   install_cask imageoptim
   install_cask licecap
-  install_cask signal
+  # install_cask signal
   install_cask slack
   install_cask soundsource
-  install_cask spotify
+  # install_cask spotify
   install_cask tableplus
 
   section "Clean Up"
@@ -53,7 +53,7 @@ install_package_managers() {
   fi
 
   CI=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  eval "$(/opt/homebrew/bin/brew shellenv)"   
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 }
 
 configure_os() {
@@ -69,7 +69,7 @@ configure_ssh() {
   touch ~/.ssh/config
   echo "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_rsa" > ~/.ssh/config
   echo "Host github.com\n  Host github.com\n  Hostname ssh.github.com\n  Port 443" >> ~/.ssh/config
-  ssh-keygen -t ed25519 -C "daniel.m.conrad@gmail.com" -f ~/.ssh/id_ed25519
+  ssh-keygen -t ed25519 -C "adekunleseun001@gmail.com" -f ~/.ssh/id_ed25519
   eval "$(ssh-agent -s)"
   ssh-add -K ~/.ssh/id_ed25519
   pbcopy < ~/.ssh/id_ed25519.pub
@@ -98,7 +98,7 @@ configure_profile() {
 
   install homeshick
 
-  homeshick clone -f -b danielmconrad/profile
+  homeshick clone -f -b seunadex/profile
   homeshick pull profile
   homeshick link profile
 
@@ -122,8 +122,8 @@ configure_profile() {
 
 install_git() {
   install git
-  git config --global user.name "Daniel Conrad"
-  git config --global user.email daniel.m.conrad@gmail.com
+  git config --global user.name "Seun Adekunle"
+  git config --global user.email "adekunleseun001@gmail.com"
 }
 
 install_code() {

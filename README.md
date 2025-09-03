@@ -5,23 +5,23 @@ Custom shell profile, delivered as a [homeshick](https://github.com/andsens/home
 ### macOS
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/danmconrad/profile/master/install/macos.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/seunadex/profile/master/install/macos.sh)"
 ```
 
 ### Ubuntu Linux
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/danmconrad/profile/master/install/ubuntu.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/seunadex/profile/master/install/ubuntu.sh)"
 ```
 
 ### Debian Linux
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/danmconrad/profile/master/install/debian.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/seunadex/profile/master/install/debian.sh)"
 ```
 
 ### ControllerPi
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/danmconrad/profile/master/install/controller.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/seunadex/profile/master/install/controller.sh)"
 ```

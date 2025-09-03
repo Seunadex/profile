@@ -40,7 +40,7 @@ configure_ssh() {
   log "Generating a new SSH key"
   touch ~/.ssh/config
   echo "Host github.com\n  Host github.com\n  Hostname ssh.github.com\n  Port 443" >> ~/.ssh/config
-  ssh-keygen -t ed25519 -C "daniel.m.conrad@gmail.com"
+  ssh-keygen -t ed25519 -C "adekunleseun001@gmail.com"
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_ed25519
   xclip -sel clip ~/.ssh/id_ed25519.pub
@@ -64,13 +64,13 @@ configure_shell() {
 }
 
 configure_profile() {
-  sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply danielmconrad
+  sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply seunadex
 }
 
 configure_git() {
   install_apt git
-  git config --global user.name "Daniel Conrad"
-  git config --global user.email daniel.m.conrad@gmail.com
+  git config --global user.name "Seun Adekunle"
+  git config --global user.email "adekunleseun001@gmail.com"
 }
 
 configure_docker() {

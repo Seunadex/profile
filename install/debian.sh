@@ -29,7 +29,7 @@ install_profile() {
 #   printf '\nsource "$HOME/.homesick/repos/homeshick/homeshick.sh"' >> $HOME/.bashrc
 #   touch ~/.bashrc
 
-  homeshick clone -f -b git@github.com:danielmconrad/profile.git
+  homeshick clone -f -b git@github.com:seunadex/profile.git
   homeshick pull profile
   homeshick link profile
 

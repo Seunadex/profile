@@ -27,7 +27,7 @@ Profile contents (name `gnome-terminal-profiles.dconf`)
 [:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
 cursor-shape='ibeam'
 scrollback-lines=100000
-visible-name='Conrad'
+visible-name='Seun'
 ```
 
 ## Trackpad
@@ -42,7 +42,7 @@ sudo apt-get -y install gnome-tweaks
 Generate
 
 ```sh
-ssh-keygen -t ed25519 -C "daniel.m.conrad@gmail.com"
+ssh-keygen -t ed25519 -C "adekunleseun001@gmail.com"
 ```
 
 Add Agent
@@ -73,7 +73,7 @@ sudo snap install spotify
 
 ```sh
 sudo addgroup --system docker
-sudo gpasswd -a $USER docker 
+sudo gpasswd -a $USER docker
 newgrp docker
 sudo snap install --edge docker
 ```
