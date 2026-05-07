@@ -190,19 +190,19 @@ install_claude_code() {
 }
 
 install() {
-  if brew list --formula $1 2>/dev/null | grep -q $1; then
+  if brew list --formula "$1" &>/dev/null; then
     log "$1 already installed, skipping"
     return
   fi
-  brew install $1
+  brew install "$1"
 }
 
 install_cask() {
-  if brew list --cask $1 2>/dev/null | grep -q $1; then
+  if brew list --cask "$1" &>/dev/null; then
     log "$1 already installed, skipping"
     return
   fi
-  brew install --cask $1
+  brew install --cask "$1"
 }
 
 section() {
