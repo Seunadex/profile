@@ -155,7 +155,11 @@ install_git() {
 install_code() {
   install_cask visual-studio-code
   mkdir -p ~/Library/Application\ Support/Code/User/
-  yes | cp -rf ~/.homesick/repos/profile/configs/code/settings.json ~/Library/Application\ Support/Code/User/settings.json
+  if [ -f ~/.homesick/repos/profile/configs/code/settings.json ]; then
+    yes | cp -rf ~/.homesick/repos/profile/configs/code/settings.json ~/Library/Application\ Support/Code/User/settings.json
+  else
+    log "VS Code settings config not found, skipping"
+  fi
 }
 
 install_rectangle() {
@@ -170,7 +174,11 @@ install_rectangle() {
 
 install_iterm2() {
   install_cask iterm2
-  yes | cp -rf ~/.homesick/repos/profile/configs/iterm2/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+  if [ -f ~/.homesick/repos/profile/configs/iterm2/com.googlecode.iterm2.plist ]; then
+    yes | cp -rf ~/.homesick/repos/profile/configs/iterm2/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+  else
+    log "iTerm2 config not found, skipping"
+  fi
 }
 
 install_claude_code() {
