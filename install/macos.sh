@@ -161,7 +161,11 @@ install_code() {
 install_rectangle() {
   install_cask rectangle
   mkdir -p ~/Library/Application\ Support/Rectangle/
-  yes | cp -rf ~/.homesick/repos/profile/configs/rectangle/Shortcuts.json ~/Library/Application\ Support/Rectangle/Shortcuts.json
+  if [ -f ~/.homesick/repos/profile/configs/rectangle/Shortcuts.json ]; then
+    yes | cp -rf ~/.homesick/repos/profile/configs/rectangle/Shortcuts.json ~/Library/Application\ Support/Rectangle/Shortcuts.json
+  else
+    log "Rectangle shortcuts config not found, skipping"
+  fi
 }
 
 install_iterm2() {
