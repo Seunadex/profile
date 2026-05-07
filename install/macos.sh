@@ -101,6 +101,7 @@ configure_shell() {
   install zsh
 
   rm -rf ~/.oh-my-zsh
+  touch ~/.zshrc
 
   RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) 2>/dev/null"
 
@@ -165,17 +166,27 @@ install_iterm2() {
 }
 
 install_claude_code() {
+  if npm list -g @anthropic-ai/claude-code --depth=0 2>/dev/null | grep -q claude-code; then
+    log "claude-code already installed, skipping"
+    return
+  fi
   npm install -g @anthropic-ai/claude-code
 }
 
 install() {
-  brew uninstall $1 || echo "$1 uninstalled"
-  brew install --force $1
+  if brew list --formula $1 2>/dev/null | grep -q $1; then
+    log "$1 already installed, skipping"
+    return
+  fi
+  brew install $1
 }
 
 install_cask() {
-  brew uninstall --cask $1 || echo "$1 uninstalled"
-  brew install --cask --force $1
+  if brew list --cask $1 2>/dev/null | grep -q $1; then
+    log "$1 already installed, skipping"
+    return
+  fi
+  brew install --cask $1
 }
 
 section() {
