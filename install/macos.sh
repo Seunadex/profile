@@ -34,9 +34,11 @@ main (){
   install httpie
   install jq
   install mise
+  install node
   install ripgrep
   install tldr
   install tree
+  install_claude_code
 
   section "Applications"
   install_cask appcleaner
@@ -159,6 +161,10 @@ install_rectangle() {
 install_iterm2() {
   install_cask iterm2
   yes | cp -rf ~/.homesick/repos/profile/configs/iterm2/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+}
+
+install_claude_code() {
+  npm install -g @anthropic-ai/claude-code
 }
 
 install() {
