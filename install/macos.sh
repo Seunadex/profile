@@ -86,6 +86,7 @@ configure_os() {
 
 configure_ssh() {
   log "Generating a new SSH key"
+  mkdir -p ~/.ssh
   touch ~/.ssh/config
   printf "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519\n" > ~/.ssh/config
   printf "Host github.com\n  Hostname ssh.github.com\n  Port 443\n" >> ~/.ssh/config
