@@ -22,7 +22,7 @@ main (){
   install_git
   install_code
   install_iterm2
-  install_spectacle
+  install_rectangle
   install vim
   install_cask docker
 
@@ -67,11 +67,11 @@ configure_os() {
 configure_ssh() {
   log "Generating a new SSH key"
   touch ~/.ssh/config
-  echo "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_rsa" > ~/.ssh/config
-  echo "Host github.com\n  Host github.com\n  Hostname ssh.github.com\n  Port 443" >> ~/.ssh/config
+  printf "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/id_ed25519\n" > ~/.ssh/config
+  printf "Host github.com\n  Hostname ssh.github.com\n  Port 443\n" >> ~/.ssh/config
   ssh-keygen -t ed25519 -C "adekunleseun001@gmail.com" -f ~/.ssh/id_ed25519
   eval "$(ssh-agent -s)"
-  ssh-add -K ~/.ssh/id_ed25519
+  ssh-add --apple-use-keychain ~/.ssh/id_ed25519
   pbcopy < ~/.ssh/id_ed25519.pub
   log "Public SSH key copied to clipboard"
 }
@@ -132,10 +132,10 @@ install_code() {
   yes | cp -rf ~/.homesick/repos/profile/configs/code/settings.json ~/Library/Application\ Support/Code/User/settings.json
 }
 
-install_spectacle() {
-  install_cask spectacle
-  mkdir -p ~/Library/Application\ Support/Spectacle/
-  yes | cp -rf ~/.homesick/repos/profile/configs/spectacle/Shortcuts.json ~/Library/Application\ Support/Spectacle/Shortcuts.json
+install_rectangle() {
+  install_cask rectangle
+  mkdir -p ~/Library/Application\ Support/Rectangle/
+  yes | cp -rf ~/.homesick/repos/profile/configs/rectangle/Shortcuts.json ~/Library/Application\ Support/Rectangle/Shortcuts.json
 }
 
 install_iterm2() {
@@ -145,12 +145,12 @@ install_iterm2() {
 
 install() {
   brew uninstall $1 || echo "$1 uninstalled"
-  brew install -f $1
+  brew install --force $1
 }
 
 install_cask() {
   brew uninstall --cask $1 || echo "$1 uninstalled"
-  brew install --cask -f $1
+  brew install --cask --force $1
 }
 
 section() {
