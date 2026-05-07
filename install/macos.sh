@@ -26,6 +26,18 @@ main (){
   install vim
   install_cask docker
 
+  section "CLI Tools"
+  install bat
+  install eza
+  install fzf
+  install gh
+  install httpie
+  install jq
+  install mise
+  install ripgrep
+  install tldr
+  install tree
+
   section "Applications"
   install_cask appcleaner
   install_cask balenaetcher
@@ -34,11 +46,17 @@ main (){
   install_cask google-chrome
   install_cask imageoptim
   install_cask licecap
+  install_cask obsidian
+  install_cask proxyman
+  install_cask raycast
   # install_cask signal
   install_cask slack
   install_cask soundsource
   # install_cask spotify
   install_cask tableplus
+  install_cask warp
+  install_cask wireshark
+  install_cask zoom
 
   section "Clean Up"
   brew doctor
