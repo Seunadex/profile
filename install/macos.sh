@@ -85,6 +85,10 @@ configure_os() {
 }
 
 configure_ssh() {
+  if [ -f ~/.ssh/id_ed25519 ]; then
+    log "SSH key already exists, skipping"
+    return
+  fi
   log "Generating a new SSH key"
   mkdir -p ~/.ssh
   touch ~/.ssh/config
